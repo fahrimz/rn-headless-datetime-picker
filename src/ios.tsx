@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import {
   Modal,
   Pressable,
@@ -29,8 +29,14 @@ export function IosPicker({
   doneTextStyle,
 }: Props) {
   const { options } = request;
-  const initial = options.initial ?? new Date();
-  const [draft, setDraft] = useState<Date>(initial);
+  // Freeze the picker's initial value on mount. Re-creating `new Date()`
+  // each render would feed a new reference to DateTimePicker.value, which
+  // iOS's spinner interprets as an external reset and snaps back mid-scroll.
+  const [initial] = useState<Date>(() => options.initial ?? new Date());
+  // Track the in-flight value in a ref so onChange never triggers a re-render
+  // of DateTimePicker. The native picker (spinner or inline calendar) owns
+  // its own visual state; we just commit the latest ref value on Done.
+  const draftRef = useRef<Date>(initial);
   const mode = options.mode ?? 'date';
   const display =
     options.iosDisplay ?? (mode === 'date' ? 'inline' : 'spinner');
@@ -60,10 +66,10 @@ export function IosPicker({
           onPress={() => {}}
         >
           <DateTimePicker
-            value={draft}
+            value={initial}
             mode={mode}
             onChange={(_e: DateTimePickerEvent, d?: Date) => {
-              if (d) setDraft(d);
+              if (d) draftRef.current = d;
             }}
             minimumDate={options.min}
             maximumDate={options.max}
@@ -77,7 +83,7 @@ export function IosPicker({
           <View style={styles.footer}>
             <Pressable
               style={styles.doneBtn}
-              onPress={() => onResult(draft)}
+              onPress={() => onResult(draftRef.current)}
               accessibilityRole="button"
             >
               <Text style={[styles.doneText, accentColored, doneTextStyle]}>
