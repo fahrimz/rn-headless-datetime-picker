@@ -26,6 +26,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "@react-native-community/datetimepicker",
+      [
+        "rn-headless-datetime-picker",
+        {
+          "accentColor": "#FFD443"
+        }
+      ]
+    ]
   }
 }

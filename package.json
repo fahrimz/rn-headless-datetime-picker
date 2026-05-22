@@ -10,6 +10,7 @@
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
+    "./app.plugin.js": "./app.plugin.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -20,6 +21,8 @@
     "cpp",
     "*.podspec",
     "react-native.config.js",
+    "app.plugin.js",
+    "plugin",
     "!ios/build",
     "!android/build",
     "!android/gradle",
@@ -40,8 +43,13 @@
   },
   "keywords": [
     "react-native",
+    "expo",
     "ios",
-    "android"
+    "android",
+    "datetimepicker",
+    "datepicker",
+    "timepicker",
+    "headless"
   ],
   "repository": {
     "type": "git",
@@ -60,6 +68,7 @@
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
+    "@react-native-community/datetimepicker": "^8.6.0",
     "@react-native/babel-preset": "0.85.0",
     "@react-native/eslint-config": "0.85.0",
     "@types/react": "^19.2.0",
@@ -68,6 +77,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ft-flow": "^3.0.11",
     "eslint-plugin-prettier": "^5.5.5",
+    "expo": "~55.0.26",
     "prettier": "^3.8.1",
     "react": "19.2.0",
     "react-native": "0.83.6",
@@ -76,8 +86,15 @@
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
+    "@react-native-community/datetimepicker": ">=8.0.0",
+    "expo": ">=50.0.0",
     "react": "*",
     "react-native": "*"
+  },
+  "peerDependenciesMeta": {
+    "expo": {
+      "optional": true
+    }
   },
   "workspaces": [
     "example"

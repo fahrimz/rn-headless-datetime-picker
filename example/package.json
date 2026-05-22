@@ -13,12 +13,14 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~55.0.11",
+    "@react-native-community/datetimepicker": "8.6.0",
     "expo": "~55.0.26",
     "expo-status-bar": "~55.0.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.6",
-    "react-native-web": "~0.21.0"
+    "react-native-web": "~0.21.0",
+    "rn-headless-datetime-picker": "workspace:*"
   },
   "private": true,
   "devDependencies": {
