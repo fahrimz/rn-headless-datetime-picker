@@ -40,8 +40,7 @@
     "prepare": "bob build",
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "test": "jest",
-    "release": "release-it"
+    "test": "jest"
   },
   "keywords": [
     "react-native",
@@ -73,7 +72,6 @@
     "@react-native-community/datetimepicker": "^8.6.0",
     "@react-native/babel-preset": "0.85.0",
     "@react-native/eslint-config": "0.85.0",
-    "@release-it/conventional-changelog": "^11.0.0",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.0",
     "babel-jest": "^30.4.1",
@@ -88,7 +86,6 @@
     "react": "19.2.0",
     "react-native": "0.83.6",
     "react-native-builder-bob": "^0.41.0",
-    "release-it": "^20.0.1",
     "turbo": "^2.8.21",
     "typescript": "^6.0.2"
   },
@@ -148,34 +145,5 @@
       "eslint"
     ],
     "version": "0.62.0"
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release v${version}",
-      "tagName": "v${version}",
-      "requireBranch": "main",
-      "requireCleanWorkingDir": true
-    },
-    "npm": {
-      "publish": false
-    },
-    "github": {
-      "release": true,
-      "releaseName": "v${version}"
-    },
-    "hooks": {
-      "before:init": [
-        "yarn lint",
-        "yarn typecheck",
-        "yarn test --ci",
-        "yarn prepare"
-      ]
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular",
-        "infile": "CHANGELOG.md"
-      }
-    }
   }
 }
