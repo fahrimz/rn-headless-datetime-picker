@@ -1,6 +1,6 @@
 {
   "name": "rn-headless-datetime-picker",
-  "version": "0.1.1so ",
+  "version": "0.1.2",
   "description": "Headless date and time picker for React Native — promise-based API, Expo-friendly",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

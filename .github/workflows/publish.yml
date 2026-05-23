@@ -34,6 +34,5 @@ jobs:
         run: yarn prepare
 
       - name: Publish to npm
-        run: yarn npm publish --provenance
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # Trusted Publishing via OIDC — workflow has id-token: write, no NPM_TOKEN needed.
+        run: npm publish --provenance --access public
