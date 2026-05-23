@@ -7,6 +7,21 @@ A **headless**, promise-based date and time picker for React Native — built on
 - **Expo-friendly** — works in Expo Go without prebuild. Ships an optional Expo config plugin to tint the Android dialog with your brand color.
 - **Tiny surface** — three functions, one host component.
 
+## Demo
+
+<table>
+  <tr>
+    <td align="center"><strong>iOS</strong></td>
+    <td align="center"><strong>Android</strong></td>
+    <td align="center"><strong>Android (with <code>accentColor</code>)</strong></td>
+  </tr>
+  <tr>
+    <td><img src="docs/media/demo-ios.gif" alt="iOS demo" width="240" /></td>
+    <td><img src="docs/media/demo-android.gif" alt="Android demo" width="240" /></td>
+    <td><img src="docs/media/demo-android-accent.gif" alt="Android demo with accent color" width="240" /></td>
+  </tr>
+</table>
+
 ## Install
 
 ```sh
