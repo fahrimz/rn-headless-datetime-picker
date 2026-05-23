@@ -7,5 +7,6 @@ export function configureDateTimePicker(next: Partial<PickDateTimeOptions>) {
 }
 
 export function getDefaults(): Partial<PickDateTimeOptions> {
-  return defaults;
+  // Return a shallow copy so callers can't mutate the internal store.
+  return { ...defaults };
 }

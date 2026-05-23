@@ -39,7 +39,8 @@
     "clean": "del-cli lib",
     "prepare": "bob build",
     "typecheck": "tsc",
-    "lint": "eslint \"**/*.{js,ts,tsx}\""
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "test": "jest"
   },
   "keywords": [
     "react-native",
@@ -71,13 +72,16 @@
     "@react-native-community/datetimepicker": "^8.6.0",
     "@react-native/babel-preset": "0.85.0",
     "@react-native/eslint-config": "0.85.0",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.2.0",
+    "babel-jest": "^30.4.1",
     "del-cli": "^7.0.0",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-ft-flow": "^3.0.11",
     "eslint-plugin-prettier": "^5.5.5",
     "expo": "~55.0.26",
+    "jest": "^30.4.2",
     "prettier": "^3.8.1",
     "react": "19.2.0",
     "react-native": "0.83.6",
@@ -124,6 +128,15 @@
     "tabWidth": 2,
     "trailingComma": "es5",
     "useTabs": false
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testRegex": "__tests__/.*\\.test\\.[jt]sx?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/example/",
+      "/lib/"
+    ]
   },
   "create-react-native-library": {
     "type": "library",
