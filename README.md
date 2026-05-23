@@ -16,9 +16,9 @@ A **headless**, promise-based date and time picker for React Native — built on
     <td align="center"><strong>Android (with <code>accentColor</code>)</strong></td>
   </tr>
   <tr>
-    <td><img src="docs/media/demo-ios.gif" alt="iOS demo" width="240" /></td>
-    <td><img src="docs/media/demo-android.gif" alt="Android demo" width="240" /></td>
-    <td><img src="docs/media/demo-android-accent.gif" alt="Android demo with accent color" width="240" /></td>
+    <td><img src="https://raw.githubusercontent.com/fahrimz/rn-headless-datetime-picker/main/docs/media/demo-ios.gif" alt="iOS demo" width="240" /></td>
+    <td><img src="https://raw.githubusercontent.com/fahrimz/rn-headless-datetime-picker/main/docs/media/demo-android.gif" alt="Android demo" width="240" /></td>
+    <td><img src="https://raw.githubusercontent.com/fahrimz/rn-headless-datetime-picker/main/docs/media/demo-android-accent.gif" alt="Android demo with accent color" width="240" /></td>
   </tr>
 </table>
 
