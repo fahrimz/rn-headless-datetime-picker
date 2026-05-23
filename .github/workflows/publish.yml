@@ -2,37 +2,38 @@ name: Publish
 
 on:
   push:
-    tags: ['v*']
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
-      # OIDC token used by npm to mint the provenance attestation that links
-      # the published tarball back to this commit + workflow run.
-      id-token: write
+      contents: write       # push the Version Packages PR + tags
+      pull-requests: write  # open / update the Version Packages PR
+      id-token: write       # npm Trusted Publishing (OIDC) + provenance
 
     steps:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
 
       - name: Setup
         uses: ./.github/actions/setup
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Typecheck
-        run: yarn typecheck
-
-      - name: Test
-        run: yarn test --ci
-
       - name: Build
         run: yarn prepare
 
-      - name: Publish to npm
-        # Trusted Publishing via OIDC — workflow has id-token: write, no NPM_TOKEN needed.
-        run: npm publish --provenance --access public
+      - name: Create release PR or publish to npm
+        uses: changesets/action@e2f8e964d080ae97c874b19e27b12e0a8620fb6c # v1.5.3
+        with:
+          version: yarn version-packages
+          publish: yarn release
+          commit: "chore: version packages"
+          title: "chore: version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
